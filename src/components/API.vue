@@ -25,7 +25,7 @@
       <v-fade-transition mode="out-in">
         <v-row>
           <v-col cols="12">
-            <card :imageURL="data.url">
+            <card :dataURL="data.url" :dataType="mediaType">
               <p slot="title">{{ data.title }}</p>
               <p slot="date">{{ data.date }}</p>
               <p slot="explanation">{{ data.explanation }}</p>
@@ -49,10 +49,11 @@ export default {
   data: () => ({
     data: null,
     api:
-      "https://api.nasa.gov/planetary/apod?api_key=KOAVjU96q4a8PWary2YJQewHCgf2e9HbhSxCq20c",
+      "https://api.nasa.gov/planetary/apod?api_key=KOAVjU96q4a8PWary2YJQewHCgf2e9HbhSxCq20c&2020-12-30",
     isAPIFetchSuccessful: null,
     absolute: true,
     overlay: true,
+    mediaType: "",
   }),
   created() {
     this.axios
@@ -60,6 +61,7 @@ export default {
       .then((response) => {
         this.data = response.data;
         this.isAPIFetchSuccessful = true;
+        this.mediaType = response.data.media_type;
       })
       .catch(() => {
         this.isAPIFetchSuccessful = false;

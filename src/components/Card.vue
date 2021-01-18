@@ -4,9 +4,20 @@
       class="white--text align-end"
       height="80vh"
       width="100vh"
-      :src="imageURL"
+      :src="dataURL"
+      v-if="dataType === 'image'"
     >
     </v-img>
+    <iframe
+      v-else
+      :src="dataURL"
+      height="100%"
+      width="100%"
+      frameBorder="0"
+      allow="autoplay; encrypted-media"
+      allowFullScreen
+      title="video"
+    />
     <v-card-title><slot name="title"/></v-card-title>
     <v-card-subtitle class="pb-0"> <slot name="date"/></v-card-subtitle>
     <v-card-text class="text--primary">
@@ -17,7 +28,7 @@
 </template>
 <script>
 export default {
-  props: ["imageURL"],
+  props: ["dataURL", "dataType"],
   name: "Card",
 };
 </script>
