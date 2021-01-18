@@ -49,7 +49,7 @@ export default {
   data: () => ({
     data: null,
     api:
-      "https://api.nasa.gov/planetary/apod?api_key=KOAVjU96q4a8PWary2YJQewHCgf2e9HbhSxCq20c&2020-12-30",
+      "https://api.nasa.gov/planetary/apod?api_key=KOAVjU96q4a8PWary2YJQewHCgf2e9HbhSxCq20c&date=2020-12-30",
     isAPIFetchSuccessful: null,
     absolute: true,
     overlay: true,
